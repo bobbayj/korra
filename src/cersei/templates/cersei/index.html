@@ -1,0 +1,25 @@
+{% extends 'halo/base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block css %}
+
+  {{ block.super }}
+
+  <style>
+    body .content {
+      max-width: 650px;
+      margin: 10em auto 0;
+    }
+  </style>
+
+{% endblock css %}
+
+
+{% block content %}
+  <br />
+  <br />
+  {% include 'events/form.html' %}
+{% endblock content %}

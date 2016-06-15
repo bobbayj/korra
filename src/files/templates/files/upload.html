@@ -1,0 +1,43 @@
+{% extends 'cersei/base.html' %}
+
+
+{% block content %}
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      There were some errors with your submission.  Please see below.
+    </div>
+    {{ form.non_field_errors }}
+  {% endif %}
+
+  <form enctype="multipart/form-data" method="post">
+    <h3>Required</h3>
+    <div class="form-group {{ form.password.errors|yesno:'error,' }}">
+      {{ form.password.errors }}
+      {{ form.password.label_tag }}
+      {{ form.password }}
+      {% if form.password.help_text %}<div class="help-text">{{ form.password.help_text }}</div>{% endif %}
+    </div>
+    <div class="form-group {{ form.file.errors|yesno:'error,' }}">
+      {{ form.file.errors }}
+      {{ form.file.label_tag }}
+      {{ form.file }}
+      {% if form.file.help_text %}<div class="help-text">{{ form.file.help_text }}</div>{% endif %}
+    </div>
+    <h3>Optional</h3>
+    <div class="form-group {{ form.lifetime.errors|yesno:'error,' }}">
+      {{ form.lifetime.errors }}
+      {{ form.lifetime.label_tag }}
+      {{ form.lifetime }}
+      {% if form.lifetime.help_text %}<div class="help-text">{{ form.lifetime.help_text }}</div>{% endif %}
+    </div>
+    <div class="form-group {{ form.delete_on_download.errors|yesno:'error,' }}">
+      {{ form.delete_on_download.errors }}
+      {{ form.delete_on_download }}
+      {{ form.delete_on_download.label_tag }}
+      {% if form.delete_on_download.help_text %}<div class="help-text">{{ form.delete_on_download.help_text }}</div>{% endif %}
+    </div>
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Upload" />
+  </form>
+{% endblock content %}
