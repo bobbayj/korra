@@ -1,10 +1,10 @@
 from urllib.parse import quote
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import FormView, TemplateView
 from django.core.urlresolvers import reverse
 
-from .forms import UploadForm
+from .forms import UploadForm, DownloadForm
 
 
 class UploadView(FormView):
@@ -32,3 +32,27 @@ class UploadedView(TemplateView):
             self.request.GET.get("url")
         )
         return context
+
+
+class DownloadView(FormView):
+
+    form_class = DownloadForm
+    template_name = "files/download.html"
+
+    def get_initial(self):
+        initial = FormView.get_initial(self)
+        initial["name"] = self.kwargs["pk"]
+        return initial
+
+    def form_valid(self, form):
+
+        r = HttpResponse(
+            content=form.file_data,
+            content_type=form.file.content_type
+        )
+
+        r["Content-Disposition"] = "attachment; filename={}".format(
+            form.file.name
+        )
+
+        return r

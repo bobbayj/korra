@@ -1,0 +1,26 @@
+{% extends 'cersei/base.html' %}
+
+
+{% block content %}
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      There were some errors with your submission.  Please see below.
+    </div>
+    {{ form.non_field_errors }}
+  {% endif %}
+
+  <h3>Hooray!  Let's download this sauce!</h3>
+
+  <form method="post">
+    <div class="form-group {{ form.password.errors|yesno:'error,' }}">
+      {{ form.password.errors }}
+      {{ form.password.label_tag }}
+      {{ form.password }}
+      {% if form.password.help_text %}<div class="help-text">{{ form.password.help_text }}</div>{% endif %}
+    </div>
+    {% csrf_token %}
+    {{ form.name }}
+    <input type="submit" class="btn btn-primary" value="Upload" />
+  </form>
+{% endblock content %}

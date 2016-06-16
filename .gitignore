@@ -91,4 +91,5 @@ ENV/
 # PyCharm
 .idea
 
+src/db.sqlite3
 ω-reference
