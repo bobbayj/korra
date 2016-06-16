@@ -1,0 +1,4 @@
+cryptography==1.4
+Django==1.9.7
+django-extensions==1.6.7
+
