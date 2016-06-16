@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn for Cersei
+
+[Service]
+User=transfer.danielquinn.org
+Group=transfer.danielquinn.org
+EnvironmentFile=/etc/cersei.conf
+ExecStart=/usr/local/bin/cersei
+
+[Install]
+WantedBy=multi-user.target
+

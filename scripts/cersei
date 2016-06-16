@@ -1,0 +1,3 @@
+#!/bin/sh
+
+${CERSEI_PROJECT_ROOT}virtualenv/bin/gunicorn --chdir=${CERSEI_PROJECT_ROOT}src cersei.wsgi:application -c ${CERSEI_PROJECT_ROOT}gunicorn.py
