@@ -40,7 +40,6 @@ class File(models.Model):
     def fetch(self, password):
 
         if self.expires and timezone.now() > self.expires:
-            os.unlink(self.get_path())
             self.delete()
             raise FileExpiredException("This file is no longer available")
 
@@ -57,6 +56,15 @@ class File(models.Model):
 
     def get_absolute_url(self):
         return reverse("download", kwargs={"pk": self.pk})
+
+    def delete(self, *args, **kwargs):
+
+        try:
+            os.unlink(self.get_path())
+        except FileNotFoundError:
+            pass
+
+        models.Model.delete(self, *args, **kwargs)
 
     def _get_fernet(self, password):
         return Fernet(base64.urlsafe_b64encode(PBKDF2HMAC(

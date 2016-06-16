@@ -34,6 +34,7 @@ class UploadForm(BootstrappedForm):
 
     delete_on_download = forms.BooleanField(
         required=False,
+        initial=True,
         label="Delete the file after just one download"
     )
 

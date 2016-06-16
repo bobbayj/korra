@@ -4,15 +4,14 @@
 {% block content %}
 
   {% if form.errors %}
-    <div class="alert alert-danger">
-      There were some errors with your submission.  Please see below.
-    </div>
     {{ form.non_field_errors }}
   {% endif %}
 
   <h3>Hooray!  Let's download this sauce!</h3>
 
-  <form method="post">
+  <br />
+  <br />
+  <form method="post" class="col-md-6 col-md-offset-3">
     <div class="form-group {{ form.password.errors|yesno:'error,' }}">
       {{ form.password.errors }}
       {{ form.password.label_tag }}
@@ -21,6 +20,9 @@
     </div>
     {% csrf_token %}
     {{ form.name }}
-    <input type="submit" class="btn btn-primary" value="Upload" />
+    <div class="text-center">
+      <input type="submit" class="btn btn-primary" value="Download" />
+    </div>
   </form>
+
 {% endblock content %}

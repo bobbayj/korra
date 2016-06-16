@@ -55,4 +55,7 @@ class DownloadView(FormView):
             form.file.name
         )
 
+        if form.file.delete_on_download:
+            form.file.delete()
+
         return r
