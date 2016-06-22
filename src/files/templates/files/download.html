@@ -1,28 +1,24 @@
-{% extends 'cersei/base.html' %}
+{% extends 'korra/form.html' %}
 
 
-{% block content %}
-
-  {% if form.errors %}
-    {{ form.non_field_errors }}
-  {% endif %}
-
-  <h3>Hooray!  Let's download this sauce!</h3>
-
+{% block form %}
+  <div class="form-group {{ form.password.errors|yesno:'error,' }}">
+    {{ form.password.errors }}
+    <div class="sr-only">{{ form.password.label_tag }}</div>
+    {{ form.password }}
+    {% if form.password.help_text %}<div class="help-text">{{ form.password.help_text }}</div>{% endif %}
+  </div>
+  {{ form.name }}
+  {% csrf_token %}
   <br />
-  <br />
-  <form method="post" class="col-md-6 col-md-offset-3">
-    <div class="form-group {{ form.password.errors|yesno:'error,' }}">
-      {{ form.password.errors }}
-      {{ form.password.label_tag }}
-      {{ form.password }}
-      {% if form.password.help_text %}<div class="help-text">{{ form.password.help_text }}</div>{% endif %}
-    </div>
-    {% csrf_token %}
-    {{ form.name }}
-    <div class="text-center">
-      <input type="submit" class="btn btn-primary" value="Download" />
-    </div>
-  </form>
+  <div class="text-center">
+    <input type="submit" class="btn btn-block btn-primary" value="Download" />
+  </div>
+{% endblock form %}
 
-{% endblock content %}
+
+{% block form_footer %}
+  <div class="col-xs-12 text-center">
+    <a href="{% url 'upload' %}">Share a file of your own</a>
+  </div>
+{% endblock form_footer %}

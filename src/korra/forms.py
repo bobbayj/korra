@@ -21,7 +21,8 @@ class BootstrapMixin(object):
     # Don't apply `form-control` to these fields
     UNCONTROLLED_FIELDS = (
         forms.widgets.RadioSelect,
-        forms.widgets.CheckboxInput
+        forms.widgets.CheckboxInput,
+        forms.widgets.FileInput
     )
 
     def __init__(self):
@@ -30,9 +31,8 @@ class BootstrapMixin(object):
 
             widget = self.fields[field_name].widget
 
-            if isinstance(widget, self.UNCONTROLLED_FIELDS):
-                self.fields[field_name].label_suffix = ""
-            else:
+            self.fields[field_name].label_suffix = ""
+            if not isinstance(widget, self.UNCONTROLLED_FIELDS):
                 widget.attrs.update({"class": "form-control"})
 
 

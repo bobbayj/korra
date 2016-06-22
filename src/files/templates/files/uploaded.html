@@ -1,11 +1,20 @@
-{% extends 'cersei/base.html' %}
+{% extends 'korra/base.html' %}
 
 
 {% block content %}
-  <h2>Success!</h2>
-  <p>Now point your friend to this URL:</p>
-  <blockquote>
-    <a href="{{ url }}">{{ url }}</a>
-  </blockquote>
-  <p>Then relay the password by some other means.</p>
+  <section class="pretty">
+    <div class="section-content col-xs-12 col-md-10 col-md-offset-1">
+      <div id="success" class="col-xs-12 col-sm-3 brand" data-animation="fadeInUp">
+        <h2>Success!</h2>
+        <p>Now, point the recipient of your file to this URL</p>
+      </div>
+      <div class="col-sm-1 hidden-xs">
+        <div class="horizontal-divider"></div>
+      </div>
+      <div id="url" class="col-xs-12 col-sm-8 main" data-animation="fadeInLeft" data-animation-delay=".5s">
+        <p class="well" style="font-size: 120%;"><a href="{{ url }}">{{ url }}</a></p>
+        <p class="text-right">Then relay the password by some other means.</p>
+      </div>
+    </div>
+  </section>
 {% endblock content %}

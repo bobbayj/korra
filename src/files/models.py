@@ -27,7 +27,7 @@ class File(models.Model):
     name = models.CharField(max_length=128)
     content_type = models.CharField(max_length=128)
     created = models.DateTimeField(auto_now_add=True)
-    expires = models.DateTimeField(blank=True, null=True)
+    expires = models.DateTimeField(null=True)
     delete_on_download = models.BooleanField(default=True)
 
     def store(self, file_handle, password):
@@ -70,7 +70,7 @@ class File(models.Model):
         return Fernet(base64.urlsafe_b64encode(PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,
-            salt=settings.CERSEI_SALT,
+            salt=settings.KORRA_SALT,
             iterations=100000,
             backend=default_backend()
         ).derive(password)))

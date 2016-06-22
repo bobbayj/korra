@@ -1,42 +1,38 @@
-{% extends 'cersei/base.html' %}
+{% extends 'korra/form.html' %}
 
 
-{% block content %}
+{% block form %}
+      <div class="form-group {{ form.file.errors|yesno:'error,' }}">
+        {{ form.file.errors }}
+        {{ form.file.label_tag }}
+        {{ form.file }}
+        {% if form.file.help_text %}<div class="help-text">{{ form.file.help_text }}</div>{% endif %}
+      </div>
+      <div class="form-group {{ form.password.errors|yesno:'error,' }}">
+        {{ form.password.errors }}
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        {% if form.password.help_text %}<div class="help-text">{{ form.password.help_text }}</div>{% endif %}
+      </div>
+      <div class="form-group {{ form.lifetime.errors|yesno:'error,' }}">
+        {{ form.lifetime.errors }}
+        {{ form.lifetime.label_tag }}
+        {{ form.lifetime }}
+        {% if form.lifetime.help_text %}<div class="help-text">{{ form.lifetime.help_text }}</div>{% endif %}
+      </div>
+      <div class="form-group nobs-checkbox {{ form.delete_on_download.errors|yesno:'error,' }}">
+        {{ form.delete_on_download.errors }}
+        {{ form.delete_on_download }}
+        {{ form.delete_on_download.label_tag }}
+        {% if form.delete_on_download.help_text %}<div class="help-text">{{ form.delete_on_download.help_text }}</div>{% endif %}
+      </div>
+      {% csrf_token %}
+      <input type="submit" class="btn btn-block btn-primary" value="Upload" />
+{% endblock form %}
 
-  {% if form.errors %}
-    {{ form.non_field_errors }}
-  {% endif %}
 
-  <br />
-  <br />
-  <form enctype="multipart/form-data" method="post" class="col-md-6 col-md-offset-3">
-    <div class="form-group {{ form.password.errors|yesno:'error,' }}">
-      {{ form.password.errors }}
-      {{ form.password.label_tag }}
-      {{ form.password }}
-      {% if form.password.help_text %}<div class="help-text">{{ form.password.help_text }}</div>{% endif %}
-    </div>
-    <div class="form-group {{ form.file.errors|yesno:'error,' }}">
-      {{ form.file.errors }}
-      {{ form.file.label_tag }}
-      {{ form.file }}
-      {% if form.file.help_text %}<div class="help-text">{{ form.file.help_text }}</div>{% endif %}
-    </div>
-    <div class="form-group {{ form.lifetime.errors|yesno:'error,' }}">
-      {{ form.lifetime.errors }}
-      {{ form.lifetime.label_tag }}
-      {{ form.lifetime }}
-      {% if form.lifetime.help_text %}<div class="help-text">{{ form.lifetime.help_text }}</div>{% endif %}
-    </div>
-    <div class="form-group {{ form.delete_on_download.errors|yesno:'error,' }}">
-      {{ form.delete_on_download.errors }}
-      {{ form.delete_on_download }}
-      {{ form.delete_on_download.label_tag }}
-      {% if form.delete_on_download.help_text %}<div class="help-text">{{ form.delete_on_download.help_text }}</div>{% endif %}
-    </div>
-    {% csrf_token %}
-    <div class="text-center">
-      <input type="submit" class="btn btn-primary" value="Upload" />
-    </div>
-  </form>
-{% endblock content %}
+{% block form_footer %}
+  <div class="col-xs-12 text-center">
+    <a href="{% url 'about' %}">I don't understand. What's this for?</a>
+  </div>
+{% endblock form_footer %}

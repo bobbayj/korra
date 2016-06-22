@@ -1,0 +1,27 @@
+{% extends 'korra/base.html' %}
+
+
+{% block content %}
+  <div class="form-wrap">
+    <div class="row">
+      <div id="form" data-animation="bounceIn">
+        <div class="form-header">
+          <i class="fa fa-lock"></i>
+        </div>
+        <div class="form-main">
+          {% if form.errors %}
+            {{ form.non_field_errors }}
+          {% endif %}
+          <form enctype="multipart/form-data" method="post">
+            {% block form %}{% endblock form %}
+          </form>
+        </div>
+        <div class="form-footer">
+          <div class="row">
+            {% block form_footer %}{% endblock form_footer %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'korra/base.html' %}
+
+
+{% block content %}
+  <section id="about" class="about col-xs-12 col-md-8 col-md-offset-2">
+    <h1>About <small>What exactly is this for?</small></h1>
+    <p>
+      Sending files in a secure fashion sucks.  There are a number of options out
+      there, but all of them fail for one reason or another.
+    </p>
+    <ul>
+      <li>
+        You can send a file by email, but emails are not encrypted, and pass
+        through multiple untrusted hosts on their way to their destination.
+      </li>
+      <li>
+        You could send encrypted emails, but <strong>email encryption is
+        fantastically user-hostile</strong>.  99.99% of people on the internet
+        don't use it and don't understand it.  It also requires installing
+        special software on the origin and destination machines, something that
+        is often not permitted in office environments.
+      </li>
+      <li>
+        You can put the file into an encrypted archive (.zip, etc.) and then
+        email it to someone, but again, this requires special software on both
+        hosts.
+      </li>
+      <li>
+        You could push the file onto a shared server somewhere that's designated
+        "safe".  This is alright, if you have such a server and/or your users
+        can access it.
+      </li>
+    </ul>
+    <p>
+      This project is a work around for this situation.  I came up with it when
+      I worked for the British government where IT solutions are fragmented
+      across departments, workstations are locked-down, and crypto-literacy is
+      variable.
+    </p>
+    <p>
+      The idea is this:
+    </p>
+    <ol>
+      <li>
+        You upload a file to this site using the web form.
+        <ul>
+          <li>
+            The file is encrypted with a password of your choosing so that even
+            the server administrator can't read it.
+          </li>
+          <li>
+            You can opt to auto-delete the file after a fixed number of hours,
+            or have it deleted immediately after it's downloaded by your
+            recipient.
+          </li>
+        </ul>
+      </li>
+      <li>
+        The site will give you a URL to give to your recipient, which they can
+        click on to download the file.  However downloading it will require the
+        password you initially used.  Send this password to the recipient
+        <strong>by a means other than what you used to send the URL.</strong>
+      </li>
+      <li>
+        The recipient clicks on the link, enters the password, and they download
+        the file.  No special software required, no tech savvy needed.
+      </li>
+    </ol>
+    <div class="text-center">
+      <a href="{% url 'upload' %}" class="btn btn-primary">Give it a try</a>
+    </div>
+    <br />
+  </section>
+
+{% endblock content %}

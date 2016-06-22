@@ -1,0 +1,284 @@
+/* Un-ugly the file fields */
+input[type="file"] {
+  color: transparent;
+}
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"]::before {
+  content: 'Select some files';
+  color: black;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+input[type="file"]:hover::before {
+  border-color: black;
+}
+input[type="file"]:active {
+  outline: 0;
+}
+input[type="file"]:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.about p,
+.about li {
+  font-size: 16pt;
+}
+
+.form-main label,
+.form-main .help-text {
+  color: #ffffff;
+}
+.form-main .nobs-checkbox input {
+  float: left;
+  width: 3em;
+}
+.form-main .nobs-checkbox label {
+  display: inline;
+}
+
+.pretty.upload-main .form-footer a {
+  transition: color ease 0.5s;
+}
+.pretty.upload-main .form-footer a:hover {
+  color: #ffffff;
+}
+
+.horizontal-divider {
+  margin: 0 auto;
+  position: relative;
+  width: 1px;
+  height: 150px;
+  background-color: #ccc;
+}
+
+.pretty {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #eaeaea;
+}
+.pretty [data-animation] {
+  opacity: 0;
+}
+.pretty ul li,
+.pretty ol li {
+  margin: 1em;
+}
+.pretty h1, .pretty h2, .pretty h3, .pretty h4, .pretty h5, .pretty h6 {
+  font-weight: 400;
+}
+.pretty h1 {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.pretty a:hover {
+  text-decoration: none;
+}
+.pretty .btn {
+  border-radius: 0;
+}
+.pretty .btn:active {
+  box-shadow: none;
+  border-radius: 0 !important;
+}
+.pretty .btn:focus {
+  outline: thin dotted #fff;
+  outline-offset: 0;
+}
+.pretty .btn:hover, .pretty .btn:focus {
+  color: #fff;
+}
+.pretty .wrap {
+  width: 100%;
+}
+.pretty .top-buffer {
+  margin-top: 20px;
+}
+
+.pretty.upload-main {
+  background-color: #eaeaea;
+}
+.pretty.upload-main .title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.pretty.upload-main .title h1 {
+  font-size: 40pt;
+}
+.pretty.upload-main .wrap {
+  padding-top: 80px;
+}
+.pretty.upload-main .form-wrap {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 400px;
+}
+.pretty.upload-main .form-header {
+  padding: 20px 0;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  background-color: #fff;
+}
+.pretty.upload-main .form-header .fa-lock {
+  font-size: 50px;
+  color: #fff;
+  border-radius: 50%;
+  border: 3px solid #E7E7E7;
+  padding: 15px 25px;
+  background: #f6f8f9;
+  background: -moz-linear-gradient(-45deg, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #f6f8f9), color-stop(50%, #e5ebee), color-stop(51%, #d7dee3), color-stop(100%, #f5f7f9));
+  background: -webkit-linear-gradient(-45deg, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+  background: -o-linear-gradient(-45deg, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+  background: -ms-linear-gradient(-45deg, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+  background: linear-gradient(135deg, #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=1 );
+}
+.pretty.upload-main .form-header .fa-lock.fail {
+  color: #FF8479;
+  border: 3px solid #FF8479;
+  -webkit-transition: color 200ms linear;
+  -moz-transition: color 200ms linear;
+  -o-transition: color 200ms linear;
+  -ms-transition: color 200ms linear;
+  transition: color 200ms linear;
+}
+.pretty.upload-main .form-header .fa-lock.success {
+  color: #98CA4D;
+  border: 3px solid #98CA4D;
+  -webkit-transition: color 700ms linear;
+  -moz-transition: color 700ms linear;
+  -o-transition: color 700ms linear;
+  -ms-transition: color 700ms linear;
+  transition: color 700ms linear;
+}
+.pretty.upload-main .form-main {
+  background-color: #505050;
+  padding: 40px 50px;
+}
+.pretty.upload-main .form-footer {
+  background-color: #404040;
+  padding: 20px 50px;
+}
+.pretty.upload-main .form-footer a {
+  color: #999;
+  font-size: 10pt;
+}
+.pretty.upload-main .form-footer a:hover {
+  text-decoration: none;
+}
+.pretty.upload-main .form-footer .fa-unlock-alt {
+  font-size: 10pt;
+  color: #6f6f6f;
+  border-radius: 50%;
+  background-color: #505050;
+  padding: 5px 8px;
+  margin-right: 7px;
+}
+.pretty.upload-main .form-footer .fa-check {
+  font-size: 10pt;
+  color: #6f6f6f;
+  border-radius: 50%;
+  background-color: #505050;
+  padding: 5px;
+  margin-right: 7px;
+}
+.pretty.upload-main .upload {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #fff;
+  -webkit-transition: background-color 300ms linear;
+  -moz-transition: background-color 300ms linear;
+  -o-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
+}
+.pretty.upload-main input[type="text"],
+.pretty.upload-main input[type="password"],
+.pretty.upload-main select
+{
+  background-color: #404040;
+  padding-left: 20px;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 10px;
+  color: #ccc;
+  height: 43px;
+}
+.pretty.upload-main .bounceIn {
+  opacity: 1;
+}
+.pretty.upload-main .fail {
+  animation: shake .5s linear;
+  -webkit-animation: shake .5s linear;
+  -moz-animation: shake .5s linear;
+}
+
+@media screen and (max-width: 991px) {
+  .pretty.upload-main .wrap {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .pretty.upload-main .form-main {
+    padding: 40px 30px;
+  }
+  .pretty.upload-main .form-footer {
+    padding: 20px 30px;
+  }
+}
+
+@keyframes shake {
+  8%, 41% {transform: translateX(-10px);}
+  25%, 58% {transform: translateX(10px);}
+  75% {transform: translateX(-5px);}
+  92% {transform: translateX(5px);}
+  0%, 100% {transform: translateX(0);}
+}
+
+@-webkit-keyframes shake {
+  8%, 41% {-webkit-transform: translateX(-10px);}
+  25%, 58% {-webkit-transform: translateX(10px);}
+  75% {-webkit-transform: translateX(-5px);}
+  92% {-webkit-transform: translateX(5px);}
+  0%, 100% {-webkit-transform: translateX(0);}
+}
+
+@-moz-keyframes shake {
+  8%, 41% {-moz-transform: translateX(-10px);}
+  25%, 58% {-moz-transform: translateX(10px);}
+  75% {-moz-transform: translateX(-5px);}
+  92% {-moz-transform: translateX(5px);}
+  0%, 100% {-moz-transform: translateX(0);}
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {opacity: 0; -webkit-transform: translateX(-20px);}
+  100% {opacity: 1; -webkit-transform: translateX(0);}
+}
+
+@-moz-keyframes fadeInLeft {
+  0% {opacity: 0; -moz-transform: translateX(-20px);}
+  100% {opacity: 1; -moz-transform: translateX(0);}
+}
+
+@-o-keyframes fadeInLeft {
+  0% {opacity: 0; -o-transform: translateX(-20px);}
+  100% {opacity: 1; -o-transform: translateX(0);}
+}
+
+@keyframes fadeInLeft {
+  0% {opacity: 0; transform: translateX(-20px);}
+  100% {opacity: 1; transform: translateX(0);}
+}

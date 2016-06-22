@@ -5,7 +5,7 @@ from datetime import timedelta
 from django import forms
 from django.utils import timezone
 
-from cersei.forms import BootstrappedForm
+from korra.forms import BootstrappedForm
 
 from .models import File, BadPasswordException, FileExpiredException
 
@@ -13,6 +13,7 @@ from .models import File, BadPasswordException, FileExpiredException
 class UploadForm(BootstrappedForm):
 
     LIFETIME = (
+        (None, ""),
         (1, "1 Hour"),
         (3, "3 Hours"),
         (5, "5 Hours"),
@@ -29,13 +30,13 @@ class UploadForm(BootstrappedForm):
         required=False,
         choices=LIFETIME,
         help_text="The number of hours you want this file to remain on the "
-                  "server"
+                  "server before it's automatically deleted."
     )
 
     delete_on_download = forms.BooleanField(
         required=False,
         initial=True,
-        label="Delete the file after just one download"
+        label="Delete this file immediately after it's downloaded."
     )
 
     file = forms.FileField()
@@ -43,13 +44,18 @@ class UploadForm(BootstrappedForm):
     def store(self):
 
         lifetime = self.cleaned_data["lifetime"]
+        delete_on_download = bool(self.cleaned_data["delete_on_download"])
 
-        f = File.objects.create(
-            name=self.cleaned_data["file"].name,
-            content_type=self.cleaned_data["file"].content_type,
-            delete_on_download=bool(self.cleaned_data["delete_on_download"]),
-            expires=(timezone.now() + timedelta(hours=int(lifetime)))
-        )
+        kwargs = {
+            "name": self.cleaned_data["file"].name,
+            "content_type": self.cleaned_data["file"].content_type,
+            "delete_on_download": delete_on_download,
+        }
+
+        if lifetime:
+            kwargs["expires"] = timezone.now() + timedelta(hours=int(lifetime))
+
+        f = File.objects.create(**kwargs)
         f.store(
             self.cleaned_data["file"],
             bytes(self.cleaned_data["password"], "utf-8")
@@ -61,13 +67,19 @@ class UploadForm(BootstrappedForm):
 class DownloadForm(BootstrappedForm):
 
     name = forms.CharField(widget=forms.widgets.HiddenInput)
-    password = forms.CharField(widget=forms.widgets.PasswordInput)
+    password = forms.CharField(
+        widget=forms.widgets.PasswordInput,
+        help_text="The password for the encrypted file."
+    )
 
     ACCEPTABLE_NAME_REGEX = re.compile(r"^[a-f0-9\-]{36}$")
 
     def __init__(self, *args, **kwargs):
         BootstrappedForm.__init__(self, *args, **kwargs)
-        self.fields["password"].widget.attrs.update({"autocomplete": "off"})
+        self.fields["password"].widget.attrs.update({
+            "autocomplete": "off",
+            "placeholder": "Password"
+        })
         self.file = None
         self.file_data = None
 
@@ -81,8 +93,8 @@ class DownloadForm(BootstrappedForm):
             self.file = File.objects.get(pk=pk)
         except File.DoesNotExist:
             raise forms.ValidationError(
-                "That file has been deleted or possibly never existed in the "
-                "first place."
+                "That file has been deleted or may never existed in the first "
+                "place."
             )
 
         if not self.file:

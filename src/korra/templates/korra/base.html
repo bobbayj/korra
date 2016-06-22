@@ -1,0 +1,90 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Share files safely">
+    <meta name="author" content="Daniel Quinn">
+
+    <title>Korra: a safe &amp; easy way to transfer files</title>
+
+    <link rel="stylesheet" href="{% static 'contrib/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'korra/css/animation.css' %}" />
+    <link rel="stylesheet" href="{% static 'korra/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'contrib/font-awesome/css/font-awesome.min.css' %}" />
+		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    {% block css %}{% endblock css %}
+
+    {% block js_header %}{% endblock js_header %}
+
+  </head>
+  <body>
+
+    <section class="pretty upload-main">
+      <div class="section-content">
+        <div class="wrap">
+          <div class="container">
+            <div id="title" class="title" data-animation="fadeInDown" data-animation-delay=".8s">
+              <h1>Korra</h1>
+              <h5>A safe &amp; easy way to transfer files</h5>
+            </div>
+            {% block content %}{% endblock content %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="{% static 'contrib/jquery-1.12.3.min.js' %}"></script>
+    <script src="{% static 'contrib/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'contrib/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'korra/js/main.js' %}"></script>
+
+		<script>
+			(function($) {
+
+        var $title = $("#title");
+        var $form = $("#form");
+        var $success = $("#success");
+        var $url = $("#url");
+
+				$(window).on('load resize', function(){
+          var doc_height = $(document).height();
+          var win_height = $(window).height();
+          if (win_height >= doc_height) {
+				    $("section").height(win_height);
+          }
+				});
+
+				$("section").find("input").filter(":visible:first").focus();
+
+				$("[data-animation-delay]").each(function () {
+	          var animationDelay = $(this).data("animation-delay");
+	          $(this).css({
+	              "-webkit-animation-delay": animationDelay,
+	              "-moz-animation-delay": animationDelay,
+	              "-o-animation-delay": animationDelay,
+	              "-ms-animation-delay": animationDelay,
+	              "animation-delay": animationDelay
+	          });
+	      });
+        $title.addClass("animated " + $title.data("animation"));
+        $form.addClass("animated " + $form.data("animation"));
+        $success.addClass("animated " + $success.data("animation"));
+        $url.addClass("animated " + $url.data("animation"));
+
+			})(jQuery);
+
+      {% block js_footer %}{% endblock js_footer %}
+
+		</script>
+
+  </body>
+</html>
