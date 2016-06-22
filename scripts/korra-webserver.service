@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn for Korra
+
+[Service]
+User=korra
+Group=korra
+EnvironmentFile=/etc/korra.conf
+ExecStart=/usr/local/bin/korra
+
+[Install]
+WantedBy=multi-user.target
+

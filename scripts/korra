@@ -1,0 +1,3 @@
+#!/bin/sh
+
+${KORRA_PROJECT_ROOT}virtualenv/bin/gunicorn --chdir=${KORRA_PROJECT_ROOT}src cersei.wsgi:application -c ${KORRA_PROJECT_ROOT}gunicorn.py
