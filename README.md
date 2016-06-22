@@ -13,7 +13,7 @@ files one-to-one safely & securely, so I wrote this.  Do with it as you
 will.
 
 ![upload](upload.png "Upload")
-![success](succedss.png "Success")
+![success](success.png "Success")
 ![download](download.png "Download")
 
 ## Installation
