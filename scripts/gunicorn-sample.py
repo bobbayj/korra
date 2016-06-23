@@ -2,6 +2,8 @@
 
 import os
 
+domain = os.getenv("KORRA_DOMAIN", "example.com")
+
 #
 # Server socket
 #
@@ -20,7 +22,7 @@ import os
 #       range.
 #
 
-bind = 'unix:/run/transfer.danielquinn.org/gunicorn.sock'
+bind = "unix:/run/{}/gunicorn.sock".format(domain)
 backlog = 2048
 
 #
@@ -155,9 +157,9 @@ tmp_upload_dir = None
 #       A string of "debug", "info", "warning", "error", "critical"
 #
 
-errorlog = '/var/log/transfer.danielquinn.org/gunicorn.err'
+errorlog = '/var/log/{}/gunicorn.err'.format(domain)
 loglevel = 'warning'
-accesslog = '/var/log/transfer.danielquinn.org/gunicorn.log'
+accesslog = '/var/log/{}/gunicorn.log'.format(domain)
 
 #
 # Process naming
