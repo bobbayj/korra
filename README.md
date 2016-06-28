@@ -41,9 +41,13 @@ environment variables, so here's a list that you can use for reference:
 * **KORRA_DBNAME**: The database name.  If you're using Sqlite, you can skip this, otherwise we assume you've got PostgreSQL running and this is your db name.
 * **KORRA_DBUSER**: Ditto
 * **KORRA_DBPASS**: Ditto
-* **KORRA_PROJECT_ROOT**: The path to `src`.  So if `src` is at `/home/korra/src`, this should be set to `/home/korra`. Used by the `scripts/korra` script to know where everything lives.  If you're hosting this on Heroku or something, you can skip it.
 * **KORRA_DOMAIN**: The domain you're hosting this on.  If you're not using the sample gunicorn script though, you can skip this.
 
+But how exactly do you deploy this on say, your Ubuntu box at home running
+Apache or Nginx?  For that, the only thing you really need to know is that this
+is a standard Django project, so deploying this project should work just like
+every other Django setup.  For details on how a typical Djano project is
+deployed, see [the Django documentation](https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/).
 
 ## The User Journey
 
