@@ -36,8 +36,8 @@ environment variables, so here's a list that you can use for reference:
 
 * **KORRA_SALT**: A long random string used to salt your file encryption.  Set this once and don't change it unless you're cool with any existing files being unretrieveable.
 * **KORRA_SECRET_KEY**: The Django secret key.  This should be a long random string.  Don't change it once it's set.
-* **KORRA_MEDIA_ROOT**: Your Django media root.  See the Django docs for more info here.
-* **KORRA_STATIC_ROOT**: Your Django static root.  Ditto about the docs
+* **KORRA_MEDIA_ROOT**: Your Django media root.  See the [Django docs](https://docs.djangoproject.com/en/1.9/topics/files/) covering media files for more info here.
+* **KORRA_STATIC_ROOT**: Your Django static root.  Seed the [Django docs on staticfiles](https://docs.djangoproject.com/en/1.9/ref/contrib/staticfiles/#module-django.contrib.staticfiles) for more info.
 * **KORRA_DBNAME**: The database name.  If you're using Sqlite, you can skip this, otherwise we assume you've got PostgreSQL running and this is your db name.
 * **KORRA_DBUSER**: Ditto
 * **KORRA_DBPASS**: Ditto
