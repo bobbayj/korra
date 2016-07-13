@@ -49,10 +49,6 @@ environment variables, so here's a list that you can use for reference:
   name.
 * **KORRA_DBUSER**: Ditto
 * **KORRA_DBPASS**: Ditto
-* **KORRA_PROJECT_ROOT**: The path to `src`.  So if `src` is at
-  `/home/korra/src`, this should be set to `/home/korra`. Used by the
-  `scripts/korra` script to know where everything lives.  If you're hosting
-  this on Heroku or something, you can skip it.
 * **KORRA_DOMAIN**: The domain you're hosting this on.  If you're not using the
   sample gunicorn script though, you can skip this.
 
