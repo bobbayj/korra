@@ -32,6 +32,7 @@ variables.
 Basically anywhere you might want to run this will have to define a set of
 environment variables, so here's a list that you can use for reference:
 
+<<<<<<< HEAD
 * **KORRA_SALT**: A long random string used to salt your file encryption.  Set
   this once and don't change it unless you're cool with any existing files
   being irretrievable.  The longer this string, the stronger the encryption, so
@@ -39,9 +40,10 @@ environment variables, so here's a list that you can use for reference:
 * **KORRA_SECRET_KEY**: The Django secret key.  This should be a long random
   string.  Don't change it once it's set.  A good length is about 64
   characters.
-* **KORRA_MEDIA_ROOT**: Your Django media root.  See the Django docs for more
-  info here.
-* **KORRA_STATIC_ROOT**: Your Django static root.  Ditto about the docs
+* **KORRA_MEDIA_ROOT**: Your Django media root.  See the [Django docs](https://docs.djangoproject.com/en/1.9/topics/files/)
+  covering media files for more info here.
+* **KORRA_STATIC_ROOT**: Your Django static root.  Seed the [Django docs on staticfiles](https://docs.djangoproject.com/en/1.9/ref/contrib/staticfiles/#module-django.contrib.staticfiles)
+  for more info.
 * **KORRA_DBNAME**: The database name.  If you're using Sqlite, you can skip
   this, otherwise we assume you've got PostgreSQL running and this is your db
   name.
@@ -54,6 +56,11 @@ environment variables, so here's a list that you can use for reference:
 * **KORRA_DOMAIN**: The domain you're hosting this on.  If you're not using the
   sample gunicorn script though, you can skip this.
 
+But how exactly do you deploy this on say, your Ubuntu box at home running
+Apache or Nginx?  For that, the only thing you really need to know is that this
+is a standard Django project, so deploying this project should work just like
+every other Django setup.  For details on how a typical Djano project is
+deployed, see [the Django documentation](https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/).
 
 ## The User Journey
 
