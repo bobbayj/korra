@@ -25,6 +25,11 @@ class UploadForm(BootstrappedForm):
 
     password = forms.CharField(
         widget=forms.widgets.PasswordInput, min_length=8)
+    password_confirmation = forms.CharField(
+        widget=forms.widgets.PasswordInput,
+        min_length=8,
+        label="Confirm Password"
+    )
 
     lifetime = forms.ChoiceField(
         required=False,
@@ -40,6 +45,14 @@ class UploadForm(BootstrappedForm):
     )
 
     file = forms.FileField()
+
+    def clean(self):
+        r = self.cleaned_data
+        password1 = r.get("password")
+        password2 = r.get("password_confirmation")
+
+        if not password1 == password2:
+            raise forms.ValidationError("The passwords do not match")
 
     def store(self):
 

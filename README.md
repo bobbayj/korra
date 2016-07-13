@@ -1,16 +1,14 @@
 # Korra
 
-Transferring files securely is a pain in the ass, especially if you work
-in an office environment where the technologies are heavily fragmented,
-and/or you're working with users who are not particularly technically
-savvy.
+Transferring files securely is a pain in the ass, especially if you work in an
+office environment where the technologies are heavily fragmented, and/or you're
+working with users who are not particularly technically savvy.
 
-The common denominator for many office environments consists of two
-tools: websites and (unencrypted) email.  Slightly more advanced
-companies may make use of IRC, Slack, and maybe some combination of
-Dropbox and Google Drive.  None of these tools make it easy to transfer
-files one-to-one safely & securely, so I wrote this.  Do with it as you
-will.
+The common denominator for many office environments consists of two tools:
+websites and (unencrypted) email.  Slightly more advanced companies may make
+use of IRC, Slack, and maybe some combination of Dropbox and Google Drive.
+None of these tools make it easy to transfer files one-to-one safely &
+securely, so I wrote this.  Do with it as you will.
 
 ![upload](upload.png "Upload")
 ![success](success.png "Success")
@@ -18,11 +16,11 @@ will.
 
 ## Installation
 
-As Korra is effectively an anonymous file store, it isn't meant to be a
-public web service, lest you run the risk of being an unwitting
-participant in distribution of files you may not want to distribute.
-Instead, this code is meant to be plugged into a private server
-somewhere that's accessible within your office and [secured with HTTPS](https://letsencrypt.org/).
+As Korra is effectively an anonymous file store, it isn't meant to be a public
+web service, lest you run the risk of being an unwitting participant in
+distribution of files you may not want to distribute.  Instead, this code is
+meant to be plugged into a private server somewhere that's accessible within
+your office and [secured with HTTPS](https://letsencrypt.org/).
 
 ### Setup
 
@@ -34,15 +32,27 @@ variables.
 Basically anywhere you might want to run this will have to define a set of
 environment variables, so here's a list that you can use for reference:
 
-* **KORRA_SALT**: A long random string used to salt your file encryption.  Set this once and don't change it unless you're cool with any existing files being unretrieveable.
-* **KORRA_SECRET_KEY**: The Django secret key.  This should be a long random string.  Don't change it once it's set.
-* **KORRA_MEDIA_ROOT**: Your Django media root.  See the Django docs for more info here.
+* **KORRA_SALT**: A long random string used to salt your file encryption.  Set
+  this once and don't change it unless you're cool with any existing files
+  being irretrievable.  The longer this string, the stronger the encryption, so
+  about 128 characters is a good place to start.
+* **KORRA_SECRET_KEY**: The Django secret key.  This should be a long random
+  string.  Don't change it once it's set.  A good length is about 64
+  characters.
+* **KORRA_MEDIA_ROOT**: Your Django media root.  See the Django docs for more
+  info here.
 * **KORRA_STATIC_ROOT**: Your Django static root.  Ditto about the docs
-* **KORRA_DBNAME**: The database name.  If you're using Sqlite, you can skip this, otherwise we assume you've got PostgreSQL running and this is your db name.
+* **KORRA_DBNAME**: The database name.  If you're using Sqlite, you can skip
+  this, otherwise we assume you've got PostgreSQL running and this is your db
+  name.
 * **KORRA_DBUSER**: Ditto
 * **KORRA_DBPASS**: Ditto
-* **KORRA_PROJECT_ROOT**: The path to `src`.  So if `src` is at `/home/korra/src`, this should be set to `/home/korra`. Used by the `scripts/korra` script to know where everything lives.  If you're hosting this on Heroku or something, you can skip it.
-* **KORRA_DOMAIN**: The domain you're hosting this on.  If you're not using the sample gunicorn script though, you can skip this.
+* **KORRA_PROJECT_ROOT**: The path to `src`.  So if `src` is at
+  `/home/korra/src`, this should be set to `/home/korra`. Used by the
+  `scripts/korra` script to know where everything lives.  If you're hosting
+  this on Heroku or something, you can skip it.
+* **KORRA_DOMAIN**: The domain you're hosting this on.  If you're not using the
+  sample gunicorn script though, you can skip this.
 
 
 ## The User Journey
