@@ -32,7 +32,6 @@ variables.
 Basically anywhere you might want to run this will have to define a set of
 environment variables, so here's a list that you can use for reference:
 
-<<<<<<< HEAD
 * **KORRA_SALT**: A long random string used to salt your file encryption.  Set
   this once and don't change it unless you're cool with any existing files
   being irretrievable.  The longer this string, the stronger the encryption, so
