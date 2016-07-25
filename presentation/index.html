@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Korra</title>
+
+    <meta name="description" content="A breakdown of what's different and why Django is amazeballs">
+    <meta name="author" content="Daniel Quinn">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/serif.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+      .reveal section img.headshot {
+        width: 25%;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      .reveal pre code {
+        background-color: rgba(63,63,63,0.8);
+      }
+    </style>
+
+    <link rel="stylesheet" href="contrib/font-awesome-4.3.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section data-background="img/credits.jpg">
+          <h1>Korra</h1>
+          <p style="text-align: left; width: 40%; margin-left: 50%;"><small>
+            <i class="fa fa-twitter"></i> &nbsp; <a class="nocolour" href="https://twitter.com/searchingfortao">@searchingfortao</a><br>
+            <i class="fa fa-github"></i> &nbsp; <a class="nocolour" href="https://github.com/danielquinn">danielquinn</a><br>
+            <i class="fa fa-globe"></i> &nbsp; <a class="nocolour" href="http://danielquinn.org/">danielquinn.org</a>
+          </small></p>
+        </section>
+
+        <section data-background="img/credits-faded.jpg">
+          <section>
+            <h2>The State of Things Government</h2>
+            <p>(And maybe your office too)</p>
+          </section>
+          <section>
+            <h3>Most people are non-technical</h3>
+            <p>"PGP" is hacker-speak for terrorism, right?</p>
+          </section>
+          <section>
+            <h3>Laptops are Locked Down</h3>
+            <p>People can't install software</p>
+          </section>
+          <section>
+            <h3>There's No (Secure) Shared Drive</h3>
+            <p>No, Dropbox &amp; Gmail don't count</p>
+          </section>
+          <section>
+            <h3>Email is insecure &amp; hosted externally</h3>
+          </section>
+        </section>
+
+        <section data-background="img/credits-faded.jpg">
+          <section>
+            <h2>Data Security is Hard</h2>
+            <p>(Technically &amp; logistically)</p>
+            <br>
+            <ul>
+              <li>Secure documents are emailed</li>
+              <li>Emails are printed out and walked over</li>
+            </ul>
+          </section>
+        </section>
+
+        <section data-background="img/credits-faded.jpg">
+          <section>
+            <h2>What Korra Does</h2>
+            <p>Storytime!</p>
+          </section>
+          <section style="top: 126px; display: none;" hidden="">
+            <h3>This is Mako</h3>
+            <img src="img/mako.png" class="headshot">
+          </section>
+          <section>
+            <h3>This is Asami</h3>
+            <img src="img/asami.png" class="headshot">
+          </section>
+          <section>
+            <h3>Mako wants to send a super secret message to Asami</h3>
+            <img src="img/mako.png" class="headshot">
+            <img src="img/asami.png" class="headshot">
+          </section>
+          <section>
+            <h3>Asami is 1337</h3>
+            <img src="img/asami.png" class="headshot">
+            <ul>
+              <li>She has root on her machine and can install software</li>
+              <li>She has a publicly accessible public key for encryption</li>
+              <li>She's listed on handy sites like keybase.io</li>
+              <li>She's got Thunderbird hooked up with Enigmail</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Mako is an economist</h3>
+            <img src="img/mako.png" class="headshot">
+            <ul>
+              <li>He has no idea how to use PGP</li>
+              <li>Even if he did, he doesn't have permission to modify his laptop</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Korra to the rescue!</h3>
+            <img src="img/korra.png" class="headshot">
+          </section>
+          <section>
+            <h3>Mako &amp; Asami use Korra as a Proxy</h3>
+            <img src="img/diagram.png" style="width: 60%; box-shadow: none; border: 0;">
+          </section>
+          <section>
+            <h3>Korra isn't perfect</h3>
+            <p>It's just better than email</p>
+          </section>
+        </section>
+
+        <section data-background="img/credits-faded.jpg">
+          <img src="img/korra-big.png" style="float: left; width: 30%; box-shadow: none; border: 0;">
+          <h2>Demo!</h2>
+          <img src="img/kitten.jpg" style="width: 50%;">
+          <p><small>
+            (Yes, I totally just copy/pasted this from my Paperless presentation)
+          </small></p>
+        </section>
+
+        <section data-background="img/credits-faded.jpg">
+          <h2>TODO</h2>
+          <p>I'm pretty happy with it, but...</p>
+          <ul>
+            <li>Encryption could be done client-side</li>
+            <li>OMG Tests</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>
+                <strong>Plugin architecture</strong>: there've been requests
+                for some overly custom stuff to happen before and after
+                consumption, but in the UNIX spirit of "do one job well", I
+                think this sort of thing is better written as a plugin -- which
+                means I need to figure out a best practise for that.
+              </li>
+            </ul>
+          </aside>
+        </section>
+
+        <section data-background="img/credits-faded.jpg">
+          <h2>Fork Me</h2>
+          <p>
+            <i class="fa fa-github"></i> &nbsp;
+            <a class="nocolour" href="https://github.com/danielquinn/korra">https://github.com/danielquinn/korra</a>
+          </p>
+          <img src="img/repo.png" style="width: 300px; box-shadow: none; border: 0 solid #000000;"><br>
+        </section>
+
+        <p style="font-size: x-small; background-color: rgba(255, 255, 255, 0.3); padding: 0.3em 2em; position: fixed; bottom: 1em;">
+          The floating heads are © <a href="http://spectacularana.deviantart.com/art/Legend-of-Korra-Character-Heads-464151732" style="color: #000000;">SpectacularAna</a>,
+          and all other artwork is © Nickelodeon.  I can't draw worth a damn.
+        </p>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        backgroundTransition: 'fade',
+        loop: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
