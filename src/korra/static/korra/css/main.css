@@ -74,6 +74,7 @@ h1 a:active {
 .pretty {
   font-family: 'Open Sans', sans-serif;
   background-color: #eaeaea;
+  padding-bottom: 2em;
 }
 .pretty [data-animation] {
   opacity: 0;

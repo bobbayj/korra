@@ -93,3 +93,5 @@ ENV/
 
 src/db.sqlite3
 ω-reference
+gunicorn.py
+virtualenv
