@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file: ./docker-compose.env
+    command: ["/app/src/manage.py", "migrate"]
+    command: ["/app/src/manage.py", "runserver", "0.0.0.0:8000"]
