@@ -93,7 +93,8 @@ if os.getenv("KORRA_DBUSER") and os.getenv("KORRA_DBPASS"):
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": os.getenv("KORRA_DBNAME", "korra"),
         "USER": os.getenv("KORRA_DBUSER"),
-        "PASSWORD": os.getenv("KORRA_DBPASS")
+        "PASSWORD": os.getenv("KORRA_DBPASS"),
+        "HOST": os.getenv("KORRA_DBHOST")
     }
 
 
