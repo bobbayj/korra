@@ -92,6 +92,7 @@ ENV/
 .idea
 
 src/db.sqlite3
-ω-reference
 gunicorn.py
 virtualenv
+docker-compose.env
+
