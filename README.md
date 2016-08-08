@@ -24,6 +24,18 @@ your office and [secured with HTTPS](https://letsencrypt.org/).
 
 ### Setup
 
+#### Docker
+
+We're using docker-compose, so it's a pretty quick process:
+
+* Copy `docker-compose.env.exampl `to `docker-compose.env` and edit it for
+  tastes.  The only thing you should need to fiddle with is `KORRA_SALT` and
+  `KORRA_SECRET_KEY`.  Everything else should work within the containers as
+  you'd expect.
+* Run `docker-compose up` and then open a browser at `http://localhost:8000/`.
+
+#### The Hard Way (not really)
+
 For the most part, this is just a plain & simple Django project.  There's a
 gunicorn sample file and a Systemd .service file to get you started, and
 there's only one tricky part that's worth mentioning here: the environment
