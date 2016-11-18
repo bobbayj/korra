@@ -10,9 +10,9 @@ use of IRC, Slack, and maybe some combination of Dropbox and Google Drive.
 None of these tools make it easy to transfer files one-to-one safely &
 securely, so I wrote this.  Do with it as you will.
 
-![upload](upload.png "Upload")
-![success](success.png "Success")
-![download](download.png "Download")
+![upload](https://raw.githubusercontent.com/danielquinn/korra/master/upload.png "Upload")
+![success](https://raw.githubusercontent.com/danielquinn/korra/master/success.png "Success")
+![download](https://raw.githubusercontent.com/danielquinn/korra/master/download.png "Download")
 
 ## Installation
 
