@@ -25,7 +25,11 @@ SECRET_KEY = os.getenv("KORRA_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+_allowed_hosts = os.getenv("KORRA_ALLOWED_HOSTS")
+if _allowed_hosts:
+    ALLOWED_HOSTS = _allowed_hosts.split(",")
 
 
 # Application definition
