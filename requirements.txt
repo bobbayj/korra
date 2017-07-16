@@ -1,6 +1,8 @@
 cryptography==1.4
-Django==1.10
+Django>=1.10,<1.11
 django-extensions==1.7.2
-
-gunicorn==19.6.0
-psycopg2==2.6.1
+dj-database-url==0.4.2
+json-logging-py
+python-dotenv
+gunicorn
+psycopg2

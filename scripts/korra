@@ -2,5 +2,5 @@
 
 project_root=$(dirname $(readlink -f ${0}))/../
 
-${project_root}virtualenv/bin/gunicorn --chdir=${project_root}src korra.wsgi:application -c ${project_root}gunicorn.py
+gunicorn --chdir=${project_root}src korra.wsgi:application --config ${project_root}gunicorn.conf --log-config ${project_root}logging.conf
 

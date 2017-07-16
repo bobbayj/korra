@@ -1,17 +1,13 @@
-FROM danielquinn/django
+FROM danielquinn/django:debian
+
+COPY /requirements.txt /app/requirements.txt
 
 # Install build dependencies
-RUN apk update && \
-  apk add gcc musl-dev libffi-dev
+RUN apt update &&
+  apt install gcc libffi-dev && \
+  pip install -r /app/requirements.txt && \
+  apt remove gcc
 
-# Python dependencies
-COPY /requirements.txt /app/requirements.txt
-RUN pip install -r /app/requirements.txt
+EXPOSE 8000
 
-# Cleanup
-RUN apk del gcc && \
-  rm /var/cache/apk/*
-
-# Copy the local directory into the app directory
-COPY / /app
-
+ENTRYPOINT /app/docker/entrypoint
