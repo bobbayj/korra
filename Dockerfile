@@ -4,9 +4,9 @@ COPY /requirements.txt /app/requirements.txt
 
 # Install build dependencies
 RUN apt update && \
-  apt install gcc libffi-dev && \
+  apt install -y gcc libffi-dev && \
   pip install -r /app/requirements.txt && \
-  apt remove gcc
+  apt remove -y gcc
 
 EXPOSE 8000
 
