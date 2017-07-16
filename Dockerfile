@@ -7,7 +7,7 @@ RUN apt update && \
   apt install -y gcc libffi-dev && \
   pip install -r /app/requirements.txt && \
   apt remove -y gcc && \
-  apt autoremove
+  apt-get autoremove
 
 EXPOSE 8000
 
