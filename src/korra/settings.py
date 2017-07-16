@@ -137,4 +137,4 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT")
 
 # File Encryption
 
-SALT = bytes(os.getenv("SALT"), "utf-8")
+KORRA_SALT = bytes(os.getenv("SALT"), "utf-8")

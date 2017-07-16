@@ -31,7 +31,15 @@ class File(models.Model):
     delete_on_download = models.BooleanField(default=True)
 
     def store(self, file_handle, password):
-        with open(self.get_path(), "wb") as f:
+
+        path = self.get_path()
+
+        try:
+            os.makedirs(os.path.dirname(path))
+        except FileExistsError:
+            pass
+
+        with open(path, "wb") as f:
             f.write(self._get_fernet(password).encrypt(file_handle.read()))
 
     def get_path(self):
