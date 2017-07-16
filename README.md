@@ -94,6 +94,7 @@ what you need:
 
 ```
 docker run \
+  --rm \
   --name korra \
   -p 8000:8000 \
   -v /var/www/korra/:/app/ \
