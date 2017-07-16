@@ -4,8 +4,8 @@ Description=Gunicorn for Korra
 [Service]
 User=korra
 Group=korra
-EnvironmentFile=/etc/korra.conf
-ExecStart=/usr/local/bin/korra
+EnvironmentFile=/var/www/korra/.env
+ExecStart=/var/www/korra/scripts/korra
 
 [Install]
 WantedBy=multi-user.target
