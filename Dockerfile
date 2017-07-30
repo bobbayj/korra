@@ -3,10 +3,11 @@ FROM danielquinn/django:debian
 COPY /requirements.txt /app/requirements.txt
 
 # Install build dependencies
-RUN apt update && \
-  apt install -y gcc libffi-dev && \
-  pip install -r /app/requirements.txt && \
-  apt remove -y gcc
+RUN apt-get update \
+  && apt-get install -y gcc libffi-dev \
+  && pip install -r /app/requirements.txt \
+  && apt-get remove -y gcc \
+  && apt-get clean
 
 EXPOSE 8000
 
